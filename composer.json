@@ -1,0 +1,11 @@
+{
+    "name": "batstonechristyantone/oil-change-mvc", 
+    "autoload": { 
+     
+        "psr-4": {
+            
+            "app\\": "./"
+        }
+    },
+    "require": {}
+}
