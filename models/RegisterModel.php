@@ -1,14 +1,14 @@
 <?php  
 namespace app\models;
-use app\core\model; 
+use app\core\Model;
   
 class RegisterModel extends Model {  
 
-    public string $firstname; 
-    public string $lastName;
-    public string $email;
-    public string $password; 
-    public string $confirmPassword;  
+    public string $firstname = '';
+    public string $lastName = '';
+    public string $email ='';
+    public string $password = '';
+    public string $confirmPassword = '';
 
     public function register() { 
 
