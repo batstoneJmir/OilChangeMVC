@@ -4,20 +4,31 @@ use app\core\Application;
 use app\controllers\SiteController; 
 use app\controllers\AuthController; 
 
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load(); 
 
+
+$config = [ 
+    'db' =>[
+        'dsn'=> $_ENV['DB_DSN'],
+        'username'=> $_ENV['DB_USER'],
+        'password'=> $_ENV['DB_PASSWORD'],
+    ] 
+];
 if (!function_exists('dd')) {
     function dd() {
-       foreach(func_get_args() as $x) {
-           echo "<pre>";
-           var_dump($x);
-           echo "</pre>";
-       }
-       die;
+        foreach(func_get_args() as $x) {
+            echo "<pre>";
+            var_dump($x);
+            echo "</pre>";
+        }
+        die;
     }
- } 
+}  
 
- 
-$app = new Application(dirname(__DIR__));
+
+$app = new Application(dirname(__DIR__),$config);
+
 
 $app->router->get('/', [SiteController::class ,'home']);
 
